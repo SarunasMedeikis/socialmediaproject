@@ -20,6 +20,10 @@ db.once("open", function () {
   console.log("MongoDB succesfully connected via mongoose (quack)");
 });
 
+//cors middleware, and allowing us to parse JSON
+app.use(cors());
+app.use(express.json());
+
 //Require newly created routes
 const postsRouter = require("./routes/posts");
 const usersRouter = require("./routes/users");
