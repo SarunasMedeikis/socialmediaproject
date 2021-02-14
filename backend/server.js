@@ -24,7 +24,7 @@ db.once("open", function () {
 const postsRouter = require("./routes/posts");
 const usersRouter = require("./routes/users");
 //Whenever someone goes to /posts // /users in our app, the postsRouter/usersRouter will be rendered
-// app.use("/posts", postsRouter);
+app.use("/posts", postsRouter);
 app.use("/users", usersRouter);
 
 app.listen(port, () => {

@@ -7,4 +7,19 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.route("/add").post((req, res) => {
+  const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
+
+  const newUser = new User({ username, email, password });
+
+  newUser
+    .save()
+    .then(() => res.json("User created succesfully!"))
+    .catch((error) =>
+      res.status(400).json("Error found with user creation : ", error)
+    );
+});
+
 module.exports = router;
